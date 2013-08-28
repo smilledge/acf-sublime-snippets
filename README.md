@@ -25,7 +25,8 @@ git clone https://github.com/smilledge/acf-sublime-snippets.git [user]\AppData\R
 All tab triggers follow the following naming convention; `field:{field type}:{type/option}`. All fields also have appropriate tabstops setup, however the first will always be the field name.
 
 ### Basic Fields
-**`field` / `field:header` / `field:text` / `field:link` (HTML/PHP)**   
+
+`field` / `field:header` / `field:text` / `field:link` **(HTML/PHP)**   
 Get a field by name. (Header / text / link fields will be wrapped in `<h*>` / `<p>` / `<a>` tags)
 
 ```
@@ -33,6 +34,25 @@ Get a field by name. (Header / text / link fields will be wrapped in `<h*>` / `<
   <?$php echo get_field('field_name'); ?>
 <?$php endif; ?>
 ```
+
+**`field:date` (HTML)**  
+Get and format a date field
+
+```
+<?php if ( get_field('field_name') ) : $date = DateTime::createFromFormat('Ymd', get_field('field_name')); ?>
+  <?php echo $date->format('d-m-Y'); ?>
+<?php endif; ?>
+```
+
+**`field:if` / `field:ifelse` (HTML)**  
+Field conditional. Also used for true/false fields.
+
+```
+<?php if ( get_field('field_name') ) : ?>
+<?php endif; ?>
+```
+
+### Image Field
 
 **`field:image` (HTML)**  
 Image field with a return value of "Image URL"
@@ -70,6 +90,7 @@ Image field with a return value of "Image Object"
 
 <?php endif; ?>
 ```
+### File Field
 
 **`field:file` (HTML)**  
 File field with a return value of "File URL"
@@ -102,23 +123,7 @@ File field with a return value of "File Object"
   <a href="<?php echo $file['url']; ?>"><?php echo $file['title']; ?></a>
 <?php endif; ?>
 ```
-
-**`field:date` (HTML)**  
-Get and format a date field
-
-```
-<?php if ( get_field('field_name') ) : $date = DateTime::createFromFormat('Ymd', get_field('field_name')); ?>
-  <?php echo $date->format('d-m-Y'); ?>
-<?php endif; ?>
-```
-
-**`field:if` / `field:ifelse` (HTML)**  
-Field conditional. Also used for true/false fields.
-
-```
-<?php if ( get_field('field_name') ) : ?>
-<?php endif; ?>
-```
+### Relationship Field
 
 **`field:relationship` (HTML)**  
 Get a relationship field and loop over all returned posts.
@@ -184,6 +189,7 @@ Get a location field and convert it to an interactive Google Map. Also adds a ma
 ```
 
 ### Repeater Field
+
 **`field:repeater` (HTML)**  
 Get and loop over a repeater field
 
@@ -258,7 +264,7 @@ $query = new WP_Query( $args );
 
 
 ### Misc
-**`ddfield` (HTML/PHP)**  
+`ddfield` **(HTML/PHP)**  
 `var_dump` the field contents wrapped in `<pre>` tags.
 
 ```
