@@ -25,6 +25,7 @@ git clone https://github.com/smilledge/acf-sublime-snippets.git [user]\AppData\R
 All tab triggers follow the following naming convention; `field:{field type}:{type/option}`. All fields also have appropriate tabstops setup, however the first will always be the field name.
 
 ### Basic Fields
+
 **`field` / `field:header` / `field:text` / `field:link` (HTML/PHP)**   
 Get a field by name. (Header / text / link fields will be wrapped in `<h*>` / `<p>` / `<a>` tags)
 
@@ -136,6 +137,7 @@ Get a relationship field and loop over all returned posts.
 ```
 
 ### Location Field
+
 **`field:location:staticmap` (HTML)**  
 Get a location field and convert it to a static Google Map
 
@@ -184,6 +186,7 @@ Get a location field and convert it to an interactive Google Map. Also adds a ma
 ```
 
 ### Repeater Field
+
 **`field:repeater` (HTML)**  
 Get and loop over a repeater field
 
@@ -245,7 +248,7 @@ $query = new WP_Query( $args );
 
 <?php if( $query->have_posts() ) : ?>
   <ul>
-  <?php while ( ->have_posts() ) : ->the_post(); ?>
+  <?php while ( $query->have_posts() ) : $query->the_post(); ?>
     <li>
       <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
     </li>
@@ -258,6 +261,7 @@ $query = new WP_Query( $args );
 
 
 ### Misc
+
 **`ddfield` (HTML/PHP)**  
 `var_dump` the field contents wrapped in `<pre>` tags.
 
