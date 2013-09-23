@@ -142,6 +142,16 @@ Get a relationship field and loop over all returned posts.
 
 ### Location Field
 
+**`field:location` (HTML)**  
+Get the street address from a location field
+
+```
+<?php if ( get_field('field_name') ) : 
+  $location = get_field('field_name'); ?>
+  <?php echo $location['address']; ?>
+<?php endif; ?>
+```
+
 **`field:location:staticmap` (HTML)**  
 Get a location field and convert it to a static Google Map
 
