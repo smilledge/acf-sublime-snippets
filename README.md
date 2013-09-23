@@ -199,6 +199,20 @@ Get a location field and convert it to an interactive Google Map. Also adds a ma
 <?php endif; ?>
 ```
 
+### Gravity Form Field
+
+**`field:form` (HTML)**  
+Display a gravity form. The parameters for `gravity_form()` are outlined in the [Gravity Forms documentation](http://www.gravityhelp.com/documentation/page/Embedding_A_Form#Function_Call). 
+
+```
+<?php if ( get_field('field_name') ) {
+  $form = get_field('field_name');
+  gravity_form_enqueue_scripts($form->id, true);
+  gravity_form($form->id, display_title, display_description, false, field_values, enable_ajax, 1);
+} ?>
+```
+
+
 ### Repeater Field
 
 **`field:repeater` (HTML)**  
