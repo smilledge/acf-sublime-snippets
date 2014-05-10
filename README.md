@@ -219,11 +219,11 @@ Display a gravity form. The parameters for `gravity_form()` are outlined in the 
 Get and loop over a repeater field
 
 ```
-<?php if ( get_field('field_name') ) : ?>
+<?php if ( have_rows('field_name') ) : ?>
 
-  <?php for( $i = 0; has_sub_field('field_name'); $i++ ) : ?>
+  <?php while( have_rows('field_name') ) : the_row(); ?>
 
-    <?php echo get_sub_field('sub_field_name'); ?>
+    <?php the_sub_field('sub_field_name'); ?>
 
   <?php endfor; ?>
 
