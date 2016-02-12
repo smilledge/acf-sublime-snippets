@@ -27,6 +27,7 @@ All tab triggers follow the following naming convention; `field:{field type}:{ty
 ### Basic Fields
 
 `field` / `field:header` / `field:text` / `field:link` / `field:option` **(HTML/PHP)**
+
 Get a field by name. (Header / text / link fields will be wrapped in `<h*>` / `<p>` / `<a>` tags)
 
 ```
@@ -36,6 +37,7 @@ Get a field by name. (Header / text / link fields will be wrapped in `<h*>` / `<
 ```
 
 **`field:date` (HTML)**
+
 Get and format a date field
 
 ```
@@ -45,6 +47,7 @@ Get and format a date field
 ```
 
 **`field:if` / `field:ifelse` (HTML)**
+
 Field conditional. Also used for true/false fields.
 
 ```
@@ -55,6 +58,7 @@ Field conditional. Also used for true/false fields.
 ### Image Field
 
 **`field:image` (HTML)**
+
 Image field with a return value of "Image URL"
 
 ```
@@ -64,6 +68,7 @@ Image field with a return value of "Image URL"
 ```
 
 **`field:image:id` (HTML)**
+
 Image field with a return value of "Image ID"
 
 ```
@@ -77,6 +82,7 @@ if ( get_field('field_name') ) {
 ```
 
 **`field:image:object` (HTML)**
+
 Image field with a return value of "Image Object"
 
 ```
@@ -93,6 +99,7 @@ Image field with a return value of "Image Object"
 ### File Field
 
 **`field:file` (HTML)**
+
 File field with a return value of "File URL"
 
 ```
@@ -102,6 +109,7 @@ File field with a return value of "File URL"
 ```
 
 **`field:file:id` (HTML)**
+
 File field with a return value of "File ID"
 
 ```
@@ -116,6 +124,7 @@ File field with a return value of "File ID"
 ```
 
 **`field:file:object` (HTML)**
+
 File field with a return value of "File Object"
 
 ```
@@ -126,6 +135,7 @@ File field with a return value of "File Object"
 ### Relationship Field
 
 **`field:relationship` (HTML)**
+
 Get a relationship field and loop over all returned posts.
 ```
 <?php $posts = get_field('field_name'); ?>
@@ -143,6 +153,7 @@ Get a relationship field and loop over all returned posts.
 ### Location Field
 
 **`field:location` (HTML)**
+
 Get the street address from a location field
 
 ```
@@ -153,6 +164,7 @@ Get the street address from a location field
 ```
 
 **`field:location:staticmap` (HTML)**
+
 Get a location field and convert it to a static Google Map
 
 ```
@@ -164,6 +176,7 @@ Get a location field and convert it to a static Google Map
 ```
 
 **`field:location:map` (HTML)**
+
 Get a location field and convert it to an interactive Google Map. Also adds a marker to the location. The CSS is used to prevent rendering issues with map controls caused by most responsive CSS grids.
 
 ```
@@ -202,6 +215,7 @@ Get a location field and convert it to an interactive Google Map. Also adds a ma
 ### Gravity Form Field
 
 **`field:form` (HTML)**
+
 Display a gravity form. The parameters for `gravity_form()` are outlined in the [Gravity Forms documentation](http://www.gravityhelp.com/documentation/page/Embedding_A_Form#Function_Call).
 
 ```
@@ -216,6 +230,7 @@ Display a gravity form. The parameters for `gravity_form()` are outlined in the 
 ### Repeater Field
 
 **`field:repeater` (HTML)**
+
 Get and loop over a repeater field
 
 ```
@@ -231,6 +246,7 @@ Get and loop over a repeater field
 ```
 
 **`field:repeater:grid` (HTML)**
+
 Loop over a repeater filed and seperate results into rows. The second tabstop is the row length.
 
 ```
@@ -258,6 +274,7 @@ Loop over a repeater filed and seperate results into rows. The second tabstop is
 ### Queries
 
 **`field:query` (HTML)**
+
 Query a post type on a field value and loop over posts
 
 ```
@@ -291,6 +308,7 @@ $query = new WP_Query( $args );
 ### Misc
 
 `ddfield` **(HTML/PHP)**
+
 `var_dump` the field contents wrapped in `<pre>` tags.
 
 ```
