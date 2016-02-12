@@ -26,7 +26,7 @@ All tab triggers follow the following naming convention; `field:{field type}:{ty
 
 ### Basic Fields
 
-`field` / `field:header` / `field:text` / `field:link` **(HTML/PHP)**   
+`field` / `field:header` / `field:text` / `field:link` / `field:option` **(HTML/PHP)**
 Get a field by name. (Header / text / link fields will be wrapped in `<h*>` / `<p>` / `<a>` tags)
 
 ```
@@ -35,7 +35,7 @@ Get a field by name. (Header / text / link fields will be wrapped in `<h*>` / `<
 <?$php endif; ?>
 ```
 
-**`field:date` (HTML)**  
+**`field:date` (HTML)**
 Get and format a date field
 
 ```
@@ -44,7 +44,7 @@ Get and format a date field
 <?php endif; ?>
 ```
 
-**`field:if` / `field:ifelse` (HTML)**  
+**`field:if` / `field:ifelse` (HTML)**
 Field conditional. Also used for true/false fields.
 
 ```
@@ -54,7 +54,7 @@ Field conditional. Also used for true/false fields.
 
 ### Image Field
 
-**`field:image` (HTML)**  
+**`field:image` (HTML)**
 Image field with a return value of "Image URL"
 
 ```
@@ -63,11 +63,11 @@ Image field with a return value of "Image URL"
 <?php endif; ?>
 ```
 
-**`field:image:id` (HTML)**  
+**`field:image:id` (HTML)**
 Image field with a return value of "Image ID"
 
 ```
-<?php 
+<?php
 if ( get_field('field_name') ) {
   $attachment_id = get_field('field_name');
   $size = "full"; // (thumbnail, medium, large, full or custom size)
@@ -76,7 +76,7 @@ if ( get_field('field_name') ) {
 ?>
 ```
 
-**`field:image:object` (HTML)**  
+**`field:image:object` (HTML)**
 Image field with a return value of "Image Object"
 
 ```
@@ -92,7 +92,7 @@ Image field with a return value of "Image Object"
 ```
 ### File Field
 
-**`field:file` (HTML)**  
+**`field:file` (HTML)**
 File field with a return value of "File URL"
 
 ```
@@ -101,11 +101,11 @@ File field with a return value of "File URL"
 <?php endif; ?>
 ```
 
-**`field:file:id` (HTML)**  
+**`field:file:id` (HTML)**
 File field with a return value of "File ID"
 
 ```
-<?php 
+<?php
   if ( get_field('field_name') ) :
     $attachment_id = get_field('field_name');
     $url = wp_get_attachment_url( $attachment_id );
@@ -115,7 +115,7 @@ File field with a return value of "File ID"
 <?php endif; ?>
 ```
 
-**`field:file:object` (HTML)**  
+**`field:file:object` (HTML)**
 File field with a return value of "File Object"
 
 ```
@@ -125,7 +125,7 @@ File field with a return value of "File Object"
 ```
 ### Relationship Field
 
-**`field:relationship` (HTML)**  
+**`field:relationship` (HTML)**
 Get a relationship field and loop over all returned posts.
 ```
 <?php $posts = get_field('field_name'); ?>
@@ -142,32 +142,32 @@ Get a relationship field and loop over all returned posts.
 
 ### Location Field
 
-**`field:location` (HTML)**  
+**`field:location` (HTML)**
 Get the street address from a location field
 
 ```
-<?php if ( get_field('field_name') ) : 
+<?php if ( get_field('field_name') ) :
   $location = get_field('field_name'); ?>
   <?php echo $location['address']; ?>
 <?php endif; ?>
 ```
 
-**`field:location:staticmap` (HTML)**  
+**`field:location:staticmap` (HTML)**
 Get a location field and convert it to a static Google Map
 
 ```
-<?php if ( get_field('field_name') ) : 
+<?php if ( get_field('field_name') ) :
   $location = get_field('field_name');
   $coordinates = isset( $location['coordinates'] ) ? $location['coordinates'] : $location ; ?>
   <img src="http://maps.google.com/maps/api/staticmap?markers=<?php echo $coordinates; ?>&size=500x300&sensor=false" alt="">
 <?php endif; ?>
 ```
 
-**`field:location:map` (HTML)**  
+**`field:location:map` (HTML)**
 Get a location field and convert it to an interactive Google Map. Also adds a marker to the location. The CSS is used to prevent rendering issues with map controls caused by most responsive CSS grids.
 
 ```
-<?php if ( get_field('field_name') ) : 
+<?php if ( get_field('field_name') ) :
   $location = get_field('field_name');
   $coordinates = isset( $location['coordinates'] ) ? $location['coordinates'] : $location ; ?>
 
@@ -193,16 +193,16 @@ Get a location field and convert it to an interactive Google Map. Also adds a ma
     max-width: inherit;
   }
   </style>
-  
+
   <div id="map-canvas" style="width:500px;height:300px;"></div>
- 
+
 <?php endif; ?>
 ```
 
 ### Gravity Form Field
 
-**`field:form` (HTML)**  
-Display a gravity form. The parameters for `gravity_form()` are outlined in the [Gravity Forms documentation](http://www.gravityhelp.com/documentation/page/Embedding_A_Form#Function_Call). 
+**`field:form` (HTML)**
+Display a gravity form. The parameters for `gravity_form()` are outlined in the [Gravity Forms documentation](http://www.gravityhelp.com/documentation/page/Embedding_A_Form#Function_Call).
 
 ```
 <?php if ( get_field('field_name') ) {
@@ -215,7 +215,7 @@ Display a gravity form. The parameters for `gravity_form()` are outlined in the 
 
 ### Repeater Field
 
-**`field:repeater` (HTML)**  
+**`field:repeater` (HTML)**
 Get and loop over a repeater field
 
 ```
@@ -228,9 +228,9 @@ Get and loop over a repeater field
   <?php endfor; ?>
 
 <?php endif; ?>
-``` 
+```
 
-**`field:repeater:grid` (HTML)**  
+**`field:repeater:grid` (HTML)**
 Loop over a repeater filed and seperate results into rows. The second tabstop is the row length.
 
 ```
@@ -251,13 +251,13 @@ Loop over a repeater filed and seperate results into rows. The second tabstop is
 
     <?php endforeach; ?>
   </div>
-  
+
 <?php endif; ?>
 ```
 
 ### Queries
 
-**`field:query` (HTML)**  
+**`field:query` (HTML)**
 Query a post type on a field value and loop over posts
 
 ```
@@ -283,14 +283,14 @@ $query = new WP_Query( $args );
   <?php endwhile; ?>
   </ul>
 <?php endif; ?>
- 
+
 <?php wp_reset_query(); ?>
 ```
 
 
 ### Misc
 
-`ddfield` **(HTML/PHP)**  
+`ddfield` **(HTML/PHP)**
 `var_dump` the field contents wrapped in `<pre>` tags.
 
 ```
