@@ -1,5 +1,7 @@
 # Sublime ACF (Advanced Custom Fields) Snippets
 
+The atom version of this package is available at [smilledge/acf-atom-snippets](https://github.com/smilledge/acf-atom-snippets).
+
 ## Installation
 
 Clone this repo into your Sublime packages folder. (You may need to update the path if you are using Sublime Text 3)
